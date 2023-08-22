@@ -4,7 +4,7 @@ using starwars.IBusinessLogic;
 
 namespace starwars.BusinessLogic
 {
-    public class ForceCalculator
+    public class ForceCalculator : IForceCalculator
     {
         private readonly IForceCalcStrategy _jediStrategy;
         private readonly IForceCalcStrategy _sithStrategy;
@@ -28,7 +28,7 @@ namespace starwars.BusinessLogic
                 return _sithStrategy.DetermineCharacter(sithForce);
            }
 
-        public IEnumerable<Question> GetQuestions()
+        public List<Question> GetQuestions()
         {
             return _questionProvider.GetQuestions();
         }

@@ -5,7 +5,7 @@ namespace starwars.IBusinessLogic
 {
 	public interface IPersonalityQuestion
     {
-        IEnumerable<Question> GetQuestions();
+        List<Question> GetQuestions();
     }
 }
 

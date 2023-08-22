@@ -7,7 +7,7 @@ namespace starwars.BusinessLogic
 {
     public class PersonalityQuestionnaire : IPersonalityQuestion
     {
-        public IEnumerable<Question> GetQuestions()
+        public List<Question> GetQuestions()
         {
             return new List<Question>
         {
