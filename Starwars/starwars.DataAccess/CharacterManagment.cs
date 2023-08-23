@@ -3,21 +3,21 @@ using starwars.Exceptions;
 using starwars.IDataAccess;
 
 namespace starwars.DataAccess;
-public class StarWarsCharacterManagment : IStarWarsCharacterManagment
+public class CharacterManagment : ICharacterManagment
 {
-    private List<StarWarsCharacter> _characters;
-    public StarWarsCharacterManagment()
+    private List<Character> _characters;
+    public CharacterManagment()
     {
-        this._characters = new List<StarWarsCharacter>
+        this._characters = new List<Character>
         {
-            new StarWarsCharacter
+            new Character
                 {
                     Id = 11,
                     Name = "Darth Sidious (Emperor Palpatine)",
                     Description = "The cunning Sith Lord who orchestrated the fall of the Republic and rise of the Empire.",
                     ImageUrl = "darth_sidious_image_url"
                 },
-            new StarWarsCharacter
+            new Character
                 {
                     Id = 12,
                     Name = "Darth Vader (Anakin Skywalker)",
@@ -31,22 +31,22 @@ public class StarWarsCharacterManagment : IStarWarsCharacterManagment
         throw new NotImplementedException();
     }
 
-    public StarWarsCharacter GetCharacterById(int id)
+    public Character GetCharacterById(int id)
     {
         return _characters.Where(u => u.Id == id).FirstOrDefault();
     }
 
-    public IEnumerable<StarWarsCharacter> GetCharacters()
+    public IEnumerable<Character> GetCharacters()
     {
         throw new NotImplementedException();
     }
 
-    public void InsertCharacter(StarWarsCharacter? character)
+    public void InsertCharacter(Character? character)
     {
         _characters.Add(character!);
     }
 
-    public StarWarsCharacter? UpdateCharacter(StarWarsCharacter? character)
+    public Character? UpdateCharacter(Character? character)
     {
         if(_characters.Where(u=>u.Id == character.Id).FirstOrDefault() == null)
             throw new NotFoundException("La personaje no existe");

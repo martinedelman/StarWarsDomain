@@ -39,11 +39,11 @@ namespace starwars.BusinessLogic
             }
         }
 
-        public StarWarsCharacter DetermineCharacter(int forceLevel)
+        public Character DetermineCharacter(int forceLevel)
         {
             if (forceLevel >= 90)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 11,
                     Name = "Darth Sidious (Emperor Palpatine)",
@@ -53,7 +53,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 80)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 12,
                     Name = "Darth Vader (Anakin Skywalker)",
@@ -63,7 +63,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 70)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 13,
                     Name = "Darth Maul",
@@ -73,7 +73,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 60)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 14,
                     Name = "Darth Tyranus (Count Dooku)",
@@ -83,7 +83,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 50)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 15,
                     Name = "Asajj Ventress",
@@ -93,7 +93,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 40)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 16,
                     Name = "Sith Acolyte",
@@ -103,7 +103,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 30)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 17,
                     Name = "Dark Side Cultist",
@@ -113,7 +113,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 20)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 18,
                     Name = "Dark Side Initiate",
@@ -123,7 +123,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 10)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 19,
                     Name = "Force-sensitive Individual",
@@ -133,7 +133,7 @@ namespace starwars.BusinessLogic
             }
             else
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 20,
                     Name = "Dark Side Novice",

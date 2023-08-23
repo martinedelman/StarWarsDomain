@@ -37,11 +37,11 @@ namespace starwars.BusinessLogic
                     return 1;  // Neutral impact
             }
         }
-        public StarWarsCharacter DetermineCharacter(int forceLevel)
+        public Character DetermineCharacter(int forceLevel)
         {
             if (forceLevel >= 90)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 1,
                     Name = "Jedi Master Yoda",
@@ -51,7 +51,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 80)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 2,
                     Name = "Jedi Knight Obi-Wan Kenobi",
@@ -61,7 +61,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 70)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 3,
                     Name = "Jedi Knight Ahsoka Tano",
@@ -71,7 +71,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 60)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 4,
                     Name = "Jedi Knight Qui-Gon Jinn",
@@ -81,7 +81,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 50)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 5,
                     Name = "Jedi Knight Mace Windu",
@@ -91,7 +91,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 40)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 6,
                     Name = "Jedi Consular",
@@ -101,7 +101,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 30)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 7,
                     Name = "Jedi Sentinel",
@@ -111,7 +111,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 20)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 8,
                     Name = "Jedi Guardian",
@@ -121,7 +121,7 @@ namespace starwars.BusinessLogic
             }
             else if (forceLevel >= 10)
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 9,
                     Name = "Jedi Youngling",
@@ -131,7 +131,7 @@ namespace starwars.BusinessLogic
             }
             else
             {
-                return new StarWarsCharacter
+                return new Character
                 {
                     Id = 10,
                     Name = "Force-sensitive Individual",

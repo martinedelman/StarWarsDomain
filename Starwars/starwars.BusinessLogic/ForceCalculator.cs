@@ -17,7 +17,7 @@ namespace starwars.BusinessLogic
             _questionProvider = questionProvider;
         }
 
-        public StarWarsCharacter DetermineStarWarsCharacter(IEnumerable<QuestionAnswer> answers)
+        public Character DetermineCharacter(IEnumerable<QuestionAnswer> answers)
         {
             int jediForce = _jediStrategy.CalculateForce(answers);
             int sithForce = _sithStrategy.CalculateForce(answers);

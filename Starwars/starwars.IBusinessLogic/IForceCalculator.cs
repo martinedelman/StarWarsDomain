@@ -5,7 +5,7 @@ namespace starwars.IBusinessLogic
 {
 	public interface IForceCalculator
 	{
-        public StarWarsCharacter DetermineStarWarsCharacter(IEnumerable<QuestionAnswer> answers);
+        public Character DetermineCharacter(IEnumerable<QuestionAnswer> answers);
         public List<Question> GetQuestions();
     }
 }

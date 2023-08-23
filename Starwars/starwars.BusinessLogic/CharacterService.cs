@@ -6,10 +6,10 @@ using starwars.IDataAccess;
 
 namespace starwars.BusinessLogic
 {
-    public class StarWarsCharacterService : IStarWarsCharacterService
+    public class CharacterService : ICharacterService
     {
-        private readonly IStarWarsCharacterManagment charactersManagement;
-        public StarWarsCharacterService(IStarWarsCharacterManagment charactersManagement)
+        private readonly ICharacterManagment charactersManagement;
+        public CharacterService(ICharacterManagment charactersManagement)
         {
             this.charactersManagement = charactersManagement;
         }
@@ -19,30 +19,30 @@ namespace starwars.BusinessLogic
             charactersManagement.DeleteCharacter(id);
         }
 
-        public StarWarsCharacter GetCharacterById(int id)
+        public Character GetCharacterById(int id)
         {
             return charactersManagement.GetCharacterById(id);
         }
 
-        public IEnumerable<StarWarsCharacter> GetCharacters()
+        public IEnumerable<Character> GetCharacters()
         {
             return charactersManagement.GetCharacters();
         }
 
-        public void InsertCharacter(StarWarsCharacter? character)
+        public void InsertCharacter(Character? character)
         {
             if (IsCharacterValid(character))
               charactersManagement.InsertCharacter(character!);
         }
 
-        public StarWarsCharacter? UpdateCharacter(StarWarsCharacter? character)
+        public Character? UpdateCharacter(Character? character)
         {
             if (IsCharacterValid(character))
                 return charactersManagement.UpdateCharacter(character);
             return null;
         }
 
-        private bool IsCharacterValid(StarWarsCharacter? character)
+        private bool IsCharacterValid(Character? character)
         {
             if (character == null)
             {

@@ -36,7 +36,7 @@ namespace StarWarsPersonalityConsoleApp
                 Console.WriteLine();
             }
 
-            StarWarsCharacter character = forceCalculator.DetermineStarWarsCharacter(answers);
+            Character character = forceCalculator.DetermineCharacter(answers);
 
             Console.WriteLine("¡Tus respuestas han sido evaluadas!");
             Console.WriteLine($"Basado en tus respuestas, eres: {character.Name}");

@@ -4,7 +4,7 @@ namespace starwars.IBusinessLogic;
 public interface IForceCalcStrategy
 {
     int CalculateForce(IEnumerable<QuestionAnswer> answers);
-    StarWarsCharacter DetermineCharacter(int forceLevel);
+    Character DetermineCharacter(int forceLevel);
 }
 
 
