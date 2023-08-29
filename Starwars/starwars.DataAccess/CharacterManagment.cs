@@ -33,7 +33,7 @@ public class CharacterManagment : ICharacterManagment
 
     public Character GetCharacterById(int id)
     {
-        return _characters.Where(u => u.Id == id).FirstOrDefault();
+        return _characters.Where(u => u.Id == id).FirstOrDefault()!;
     }
 
     public IEnumerable<Character> GetCharacters()
@@ -48,8 +48,8 @@ public class CharacterManagment : ICharacterManagment
 
     public Character? UpdateCharacter(Character? character)
     {
-        if(_characters.Where(u=>u.Id == character.Id).FirstOrDefault() == null)
-            throw new NotFoundException("La personaje no existe");
+        if(_characters.Where(u=>u.Id == character!.Id).FirstOrDefault() == null)
+            throw new NotFoundException("El personaje no existe");
         return character;
     }
 }
