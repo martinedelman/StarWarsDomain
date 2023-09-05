@@ -7,6 +7,7 @@ namespace starwars.DataAccess
 {
     public class StarwarsContext : DbContext
     {
+        public StarwarsContext() { }
         public StarwarsContext(DbContextOptions options) : base(options) { }
 
         public virtual DbSet<Character>? Characters { get; set; }
