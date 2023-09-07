@@ -1,6 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Linq.Expressions;
 using starwars.Domain;
 using starwars.Domain.Enums;
+using starwars.Exceptions.BusinessLogicExceptions;
 using starwars.IBusinessLogic;
 using starwars.IDataAccess;
 
@@ -8,49 +11,57 @@ namespace starwars.BusinessLogic
 {
     public class CharacterService : ICharacterService
     {
-        private readonly ICharacterManagment charactersManagement;
-        public CharacterService(ICharacterManagment charactersManagement)
+        private IGenericRepository<Character> _repository;
+
+        public CharacterService(IGenericRepository<Character> repository)
         {
-            this.charactersManagement = charactersManagement;
+            this._repository = repository;
         }
 
         public void DeleteCharacter(int id)
         {
-            charactersManagement.DeleteCharacter(id);
+            Character character = GetCharacterById(id);
+            _repository.Delete(character);
         }
 
         public Character GetCharacterById(int id)
         {
-            return charactersManagement.GetCharacterById(id);
+            Expression<Func<Character, bool>> searchCondition = (x => x.Id == id);
+            Character user = _repository.Get(searchCondition);
+            return user;
         }
 
         public IEnumerable<Character> GetCharacters()
         {
-            return charactersManagement.GetCharacters();
+            return _repository.GetAll<Character>();
         }
 
         public void InsertCharacter(Character? character)
         {
             if (IsCharacterValid(character))
-              charactersManagement.InsertCharacter(character!);
+              _repository.Insert(character!);
         }
 
         public Character? UpdateCharacter(Character? character)
         {
             if (IsCharacterValid(character))
-                return charactersManagement.UpdateCharacter(character);
+            {
+                _repository.Update(character!);
+                return GetCharacterById(character!.Id);
+            }
             return null;
+
         }
 
         private bool IsCharacterValid(Character? character)
         {
             if (character == null)
             {
-                throw new Exception("Personaje inválido");
+                throw new NotNull("Personaje no puede estar vacio");
             }
             if (character.Name == string.Empty)
             {
-                throw new Exception("Personaje inválido");
+                throw new InvalidField("El nombre del personaje es requerido");
             }
             return true;
         }

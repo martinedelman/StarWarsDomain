@@ -12,6 +12,7 @@ namespace starwars.DataAccess
 
         public virtual DbSet<Character>? Characters { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
