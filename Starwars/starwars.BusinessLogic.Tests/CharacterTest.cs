@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Moq;
 using starwars.Exceptions;
 using starwars.IDataAccess;
@@ -10,7 +11,7 @@ namespace starwars.BusinessLogic.Tests;
 [TestClass]
 public class CharacterTest
 {
-    private Mock<ICharacterManagment>? mock;
+    private Mock<IGenericRepository<Character>> mock;
     private CharacterService? service;
     private Character? character;
     private Character? nullCharacter;
@@ -20,7 +21,7 @@ public class CharacterTest
     [TestInitialize]
     public void InitTest()
     {
-        mock = new Mock<ICharacterManagment>(MockBehavior.Strict);
+        mock = new Mock<IGenericRepository<Character>>(MockBehavior.Strict);
         service = new CharacterService(mock.Object);
         character = new Character()
         {
@@ -37,19 +38,8 @@ public class CharacterTest
     [TestMethod]
     public void InsertCharacterOk()
     {
-        //Arrange
-        //Mock<ICharacterManagment>? mock = new Mock<ICharacterManagment>(MockBehavior.Strict);
-        //CharacterService? service2 = new CharacterService(mock.Object);
-        //character = new Character()
-        //{
-        //    Id = 1,
-        //    Description = "Test",
-        //    Name = "Darth Nico",
-        //    ImageUrl = ""
-        //};
-
         //Act
-        mock!.Setup(x => x.InsertCharacter(character!));
+        mock.Setup(x => x.Insert(It.IsAny<Character>()));
         service!.InsertCharacter(character!);
 
         //Assert
@@ -76,8 +66,9 @@ public class CharacterTest
     [TestMethod]
     public void GetAllCharacters()
     {
-        mock!.Setup(x => x.GetCharacters()).Returns(characters!);
-        service!.GetCharacters();
+        mock.Setup(m => m.GetAll<Character>(It.IsAny<Func<Character, bool>>(),
+        null));
+        IEnumerable<Character> newcharacters = service!.GetCharacters();
         mock.VerifyAll();
     }
 
@@ -89,12 +80,14 @@ public class CharacterTest
         mock!.VerifyAll();
     }
 
-    //[ExpectedException(typeof(NotFoundException))]
-    //[TestMethod]
-    //public void UpdateMovieNonExist()
-    //{
-    //    mock!.Setup(x => x.GetCharacterById(character!.Id)).Returns(nullCharacter);
-    //    service!.UpdateCharacter(character!);
-    //    mock.VerifyAll();
-    //}
+    [ExpectedException(typeof(NotFoundException))]
+    [TestMethod]
+    public void UpdateCharacterNonExist()
+    {
+        mock.Setup(m => m.Get(It.IsAny<Expression<Func<Character, bool>>>(),
+        It.IsAny<List<string>>())).Returns(nullCharacter);
+
+        service!.UpdateCharacter(character!);
+        mock.VerifyAll();
+    }
 }

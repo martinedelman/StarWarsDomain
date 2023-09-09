@@ -10,5 +10,6 @@
     <ProjectReference Include="..\starwars.Domain\starwars.Domain.csproj" />
     <ProjectReference Include="..\starwars.IBusinessLogic\starwars.IBusinessLogic.csproj" />
     <ProjectReference Include="..\starwars.IDataAccess\starwars.IDataAccess.csproj" />
+    <ProjectReference Include="..\starwars.Exceptions\starwars.Exceptions.csproj" />
   </ItemGroup>
 </Project>
