@@ -1,4 +1,6 @@
-﻿namespace starwars.Domain;
+﻿using System;
+
+namespace starwars.Domain;
 public class Character
 {
     public int Id { get; set; }

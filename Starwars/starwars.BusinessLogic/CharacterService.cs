@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 using starwars.Domain;
-using starwars.Domain.Enums;
 using starwars.Exceptions.BusinessLogicExceptions;
 using starwars.IBusinessLogic;
 using starwars.IDataAccess;
@@ -11,11 +9,11 @@ namespace starwars.BusinessLogic
 {
     public class CharacterService : ICharacterService
     {
-        private IGenericRepository<Character> _repository;
+        private readonly IGenericRepository<Character> _repository;
 
         public CharacterService(IGenericRepository<Character> repository)
         {
-            this._repository = repository;
+            _repository = repository;
         }
 
         public void DeleteCharacter(int id)

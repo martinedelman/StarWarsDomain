@@ -1,4 +1,6 @@
-﻿using starwars.BusinessLogic;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using starwars.BusinessLogic;
 using starwars.DataAccess;
 using starwars.Domain;
 using starwars.IBusinessLogic;
@@ -13,11 +15,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<StarwarsContext>();
 
-builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddDbContext<DbContext, StarwarsContext>();
+
 builder.Services.AddScoped<IGenericRepository<Character>, CharacterManagment>();
-
+builder.Services.AddScoped<ICharacterService, CharacterService>();
 
 var app = builder.Build();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using starwars.Domain;
+using System.Collections.Generic;
 
 namespace starwars.IBusinessLogic
 {

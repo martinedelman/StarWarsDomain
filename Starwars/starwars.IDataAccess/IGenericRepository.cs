@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace starwars.IDataAccess
 {
-    public interface IGenericRepository<T>
+    public interface IGenericRepository<T> where T : class
     {
         IEnumerable<U> GetAll<U>() where U : class;
         IEnumerable<U> GetAll<U>(Func<U, bool> predicate, List<string> includes = null) where U : class;
