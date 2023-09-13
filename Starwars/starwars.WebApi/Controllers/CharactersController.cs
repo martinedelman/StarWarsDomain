@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using starwars.Domain;
 using starwars.IBusinessLogic;
 using starwars.WebApi.Dtos;
 using System.Collections.Generic;
@@ -21,5 +22,20 @@ public class CharactersController : ControllerBase
     {
         return Ok(_characterService.GetCharacters().Select(c => new CharacterDTO(c)).ToList());
     }
+
+    [HttpGet("{id}")]
+    public IActionResult GetCharacterById([FromRoute] int id)
+    {
+        CharacterDTO characterResponseModel = new CharacterDTO(_characterService.GetCharacterById(id));
+        return Ok(characterResponseModel);
+    }
+
+    [HttpPost]
+    public IActionResult InsertCharacter([FromBody] CharacterCreateModel newCharacter)
+    {
+        _characterService.InsertCharacter(newCharacter.ToEntity());
+        return Ok();
+    }
+
 }
 

@@ -37,7 +37,10 @@ namespace starwars.BusinessLogic
         public void InsertCharacter(Character? character)
         {
             if (IsCharacterValid(character))
+            {                
               _repository.Insert(character!);
+              _repository.Save();
+            }
         }
 
         public Character? UpdateCharacter(Character? character)
