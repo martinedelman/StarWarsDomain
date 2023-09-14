@@ -17,15 +17,7 @@
     <ProjectReference Include="..\starwars.Exceptions\starwars.Exceptions.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\starwars.BusinessLogic\starwars.BusinessLogic.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\starwars.DataAccess\starwars.DataAccess.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\starwars.IDataAccess\starwars.IDataAccess.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
+    <ProjectReference Include="..\starwars.ServicesFactory\starwars.ServicesFactory.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Dtos\" />
