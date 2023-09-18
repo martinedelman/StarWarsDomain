@@ -62,7 +62,7 @@ namespace starwars.BusinessLogic
             }
             if (character.Name == string.Empty)
             {
-                throw new InvalidField("El nombre del personaje es requerido");
+                throw new InvalidResourceException("El nombre del personaje es requerido");
             }
             return true;
         }

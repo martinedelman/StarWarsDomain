@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using starwars.DataAccess;
 
@@ -11,9 +12,10 @@ using starwars.DataAccess;
 namespace starwars.DataAccess.Migrations
 {
     [DbContext(typeof(StarwarsContext))]
-    partial class StarwarsContextModelSnapshot : ModelSnapshot
+    [Migration("20230918173018_UserSessionManagementMigration")]
+    partial class UserSessionManagementMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

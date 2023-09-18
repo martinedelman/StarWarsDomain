@@ -27,7 +27,7 @@ namespace starwars.DataAccess
         }
 
 
-        public void Insert(T entity)
+        public virtual void Insert(T entity)
         {
             Context.Set<T>().Add(entity);
         }

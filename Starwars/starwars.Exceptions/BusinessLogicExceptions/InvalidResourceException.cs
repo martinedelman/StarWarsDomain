@@ -3,9 +3,9 @@
 namespace starwars.Exceptions.BusinessLogicExceptions
 {
     [Serializable]
-    public class InvalidField : Exception
+    public class InvalidResourceException : Exception
     {
-        public InvalidField(string message) : base(message)
+        public InvalidResourceException(string message) : base(message)
         {
         }
     }

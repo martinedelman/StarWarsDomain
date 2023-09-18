@@ -1,7 +1,7 @@
 using System;
 using starwars.Domain;
 
-namespace starwars.Domain;
+namespace starwars.WebApi.Dtos;
 public class CharacterCreateModel
 {
     public string Name { get; set; }

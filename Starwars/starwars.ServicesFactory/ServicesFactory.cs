@@ -17,6 +17,11 @@ public class ServicesFactory
         {
             serviceCollection.AddDbContext<DbContext, StarwarsContext>();
             serviceCollection.AddScoped<IGenericRepository<Character>, CharacterManagment>();
+            serviceCollection.AddTransient<IGenericRepository<Session>, SessionManagment>();
+            serviceCollection.AddTransient<IGenericRepository<User>, UserManagement>();
+                    
+            // Lo hago scoped ya que este manager maneja estado, tiene el currentUser
+            serviceCollection.AddScoped<ISessionService, SessionService>();
             serviceCollection.AddScoped<ICharacterService, CharacterService>();
         }
 }
