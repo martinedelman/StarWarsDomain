@@ -35,5 +35,14 @@ namespace starwars.WebApi.Controllers
             // TODO: Implementar logout
             return Ok();
         }
+
+        [ActionFilter]
+        [ResultFilter]
+        [ResourceFilter]
+        [HttpGet]
+        public IActionResult Get(){
+            Console.WriteLine("Ejecuto método");
+            return Ok("ejecuto metodo");
+        }
     }
 }

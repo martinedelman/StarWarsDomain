@@ -3,6 +3,8 @@ using starwars.Domain;
 using starwars.IBusinessLogic;
 using starwars.WebApi.Dtos;
 using System.Collections.Generic;
+using starwars.Exceptions.BusinessLogicExceptions;
+using starwars.WebApi.Filters;
 
 namespace starwars.WebApi.Controllers;
 

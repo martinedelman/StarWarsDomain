@@ -25,7 +25,7 @@ public class SessionService : ISessionService
         if (authToken == null)
             throw new ArgumentException("Cant retrieve user without auth token");
 
-        var session = _sessionRepository.Get(s => s.AuthToken == authToken);
+        var session = _sessionRepository.Get(s => s.AuthToken == authToken, new List<string>(){"User"});
 
         if (session != null)
             _currentUser = session.User;

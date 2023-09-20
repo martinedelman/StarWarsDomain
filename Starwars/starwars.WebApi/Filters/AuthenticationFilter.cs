@@ -37,7 +37,7 @@ namespace starwars.WebApi.Filters
                     // Si asigno un result se corta la ejecucion de la request y ya devuelve la response
                     context.Result = new ObjectResult(new { Message = "Unauthorized" })
                     {
-                        StatusCode = 401
+                        StatusCode = 403
                     };
                 }
             }
