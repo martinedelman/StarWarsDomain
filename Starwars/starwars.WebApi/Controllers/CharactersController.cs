@@ -39,5 +39,11 @@ public class CharactersController : ControllerBase
         return Ok();
     }
 
+    [HttpDelete("{id}")]
+    public IActionResult DeleteCharacter([FromRoute] int id)
+    {
+        throw new NotImplementedException();
+    }
+
 }
 

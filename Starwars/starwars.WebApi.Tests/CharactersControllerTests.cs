@@ -87,4 +87,18 @@ public class CharactersControllerTests
         charactersLogicMock.VerifyAll();
         Assert.AreEqual(200, statusCode);
     }
+
+    [TestMethod]
+    public void DeleteCharacter()
+    {
+        Mock<ICharacterService> characterLogicMock = new Mock<ICharacterService>(MockBehavior.Strict);
+        characterLogicMock.Setup(x => x.DeleteCharacter(It.IsAny<int>()));
+        CharactersController charactersController = new CharactersController(characterLogicMock.Object);
+        var result = charactersController.DeleteCharacter(1);
+        var objectResult = result as OkResult;
+        var statusCode = objectResult!.StatusCode;
+
+        characterLogicMock.VerifyAll();
+        Assert.AreEqual(200, statusCode);
+    }
 }

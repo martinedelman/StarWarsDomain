@@ -26,9 +26,9 @@ namespace starwars.DataAccess
                 string directory = Directory.GetCurrentDirectory();
 
                 IConfigurationRoot configuration = new ConfigurationBuilder()
-           .SetBasePath(directory)
-         .AddJsonFile("appsettings.json")
-         .Build();
+                    .SetBasePath(directory)
+                    .AddJsonFile("appsettings.json")
+                    .Build();
 
                 var connectionString = configuration.GetConnectionString(@"starwarsDB");
 
