@@ -43,4 +43,48 @@ public class CharactersControllerTests
         Assert.IsTrue(result.StatusCode.Equals(expected.StatusCode)
             && expectedObject.First().Name.Equals(objectResult.First().Name));
     }
+
+    [TestMethod]
+    public void GetCharacterById()
+    {
+        //Arrange
+        Character character = new Character()
+        {
+            Name = "Yoda",
+            Description = "Jedi Master"
+        };
+        Mock<ICharacterService> charactersLogicMock = new Mock<ICharacterService>(MockBehavior.Strict);
+        charactersLogicMock.Setup(logic => logic.GetCharacterById(It.IsAny<int>()))
+            .Returns(character);
+        CharactersController _characterController = new CharactersController(charactersLogicMock.Object);
+        OkObjectResult expected = new OkObjectResult(new CharacterDTO(character));
+        CharacterDTO expectedObject = (expected.Value as CharacterDTO)!;
+
+        OkObjectResult result = (_characterController.GetCharacterById(1) as OkObjectResult)!;
+        Console.WriteLine(result.Value);
+        CharacterDTO objectResult = (result.Value as CharacterDTO)!;
+
+        charactersLogicMock.VerifyAll();
+        Assert.IsTrue(result.StatusCode.Equals(expected.StatusCode)
+            && expectedObject.Name.Equals(objectResult.Name));
+    }
+
+    [TestMethod]
+    public void InsertCharacter()
+    { 
+        CharacterCreateModel character = new CharacterCreateModel()
+        {
+            Name = "Jar Jar Bins",
+            Description = "Sith Lord"
+        };
+        Mock<ICharacterService> charactersLogicMock = new Mock<ICharacterService>(MockBehavior.Strict);
+        charactersLogicMock.Setup(x => x.InsertCharacter(It.IsAny<Character>()));
+        CharactersController _characterController = new CharactersController(charactersLogicMock.Object);
+        var result = _characterController.InsertCharacter(character);
+        var objectResult = result as OkResult;
+        var statusCode = objectResult.StatusCode;
+
+        charactersLogicMock.VerifyAll();
+        Assert.AreEqual(200, statusCode);
+    }
 }
