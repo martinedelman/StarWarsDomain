@@ -42,7 +42,8 @@ public class CharactersController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteCharacter([FromRoute] int id)
     {
-        throw new NotImplementedException();
+        _characterService.DeleteCharacter(id);
+        return Ok();
     }
 
 }
