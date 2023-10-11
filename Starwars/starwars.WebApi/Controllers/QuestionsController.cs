@@ -17,5 +17,11 @@ namespace starwars.WebApi.Controllers
         public IActionResult GetQuestions() {
             return Ok(_forceCalculator.GetQuestions());
         }
+        [HttpGet]
+        public IActionResult DetermineCharacter()
+        {
+            //return Ok(_forceCalculator.DetermineCharacter());
+            throw new NotImplementedException();
+        }
     }
 }

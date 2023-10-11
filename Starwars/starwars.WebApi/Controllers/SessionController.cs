@@ -6,7 +6,7 @@ using starwars.WebApi.Dtos;
 
 namespace starwars.WebApi.Controllers
 {
-    [Route("api/sessions")]
+    [Route("api/v1/sessions")]
     [ApiController]
     [ExceptionFilter]
     public class SessionController : ControllerBase

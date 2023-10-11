@@ -9,13 +9,6 @@ namespace starwars.WebApi.Filters
     {
     public void OnException(ExceptionContext context)
         {
-            // Type type = context.GetType();
-            //Wrong
-            // switch (type)
-            // {
-                
-            //     default:
-            // }
             try
             {
                 throw context.Exception;

@@ -9,7 +9,7 @@ using starwars.WebApi.Filters;
 namespace starwars.WebApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/vi/[controller]")]
 public class CharactersController : ControllerBase
 {
     private ICharacterService _characterService;
