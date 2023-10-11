@@ -15,7 +15,7 @@ namespace starwars.WebApi.Controllers
 
         [HttpGet]
         public IActionResult GetQuestions() {
-            throw new NotImplementedException();
+            return Ok(_forceCalculator.GetQuestions());
         }
     }
 }
